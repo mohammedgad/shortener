@@ -11,9 +11,10 @@ defmodule Shortener.Application do
       # Start the Ecto repository
       Shortener.Repo,
       # Start the endpoint when the application starts
-      ShortenerWeb.Endpoint
+      ShortenerWeb.Endpoint,
       # Starts a worker by calling: Shortener.Worker.start_link(arg)
       # {Shortener.Worker, arg},
+      Shortener.Redis
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

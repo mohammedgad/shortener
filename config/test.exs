@@ -16,3 +16,5 @@ config :shortener, Shortener.Repo,
   database: "shortener_test",
   hostname: "postgres",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :shortener, Shortener.Redis, host: System.get_env("REDIS_URL")

@@ -73,3 +73,5 @@ config :shortener, Shortener.Repo,
   database: "shortener_dev",
   hostname: "postgres",
   pool_size: 10
+
+config :shortener, Shortener.Redis, host: System.get_env("REDIS_URL")

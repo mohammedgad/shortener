@@ -1,7 +1,7 @@
 defmodule ShortenerWeb.UrlControllerTest do
   use ShortenerWeb.ConnCase
 
-  @create_attrs %{long_url: "some long_url", slug: "some slug"}
+  @create_attrs %{long_url: "https://example.com", slug: "some_slug"}
   @invalid_attrs %{clicks: nil, long_url: nil, slug: nil}
 
   describe "index" do

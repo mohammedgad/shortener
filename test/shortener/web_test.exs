@@ -6,11 +6,11 @@ defmodule Shortener.WebTest do
   describe "urls" do
     alias Shortener.Web.Url
 
-    @valid_attrs %{long_url: "some long_url", slug: "some slug"}
+    @valid_attrs %{long_url: "https://example.com/", slug: "some_slug"}
     @update_attrs %{
       clicks: 5,
-      long_url: "some updated long_url",
-      slug: "some updated slug"
+      long_url: "https://new-example.com/",
+      slug: "some_updated_slug"
     }
     @invalid_attrs %{clicks: nil, long_url: nil, slug: ""}
 
@@ -36,8 +36,8 @@ defmodule Shortener.WebTest do
     test "create_url/1 with valid data creates a url" do
       assert {:ok, %Url{} = url} = Web.create_url(@valid_attrs)
       assert url.clicks == 0
-      assert url.long_url == "some long_url"
-      assert url.slug == "some slug"
+      assert url.long_url == "https://example.com/"
+      assert url.slug == "some_slug"
     end
 
     test "create_url/1 with invalid data returns error changeset" do
@@ -48,8 +48,8 @@ defmodule Shortener.WebTest do
       url = url_fixture()
       assert {:ok, %Url{} = url} = Web.update_url(url, @update_attrs)
       assert url.clicks == 5
-      assert url.long_url == "some updated long_url"
-      assert url.slug == "some updated slug"
+      assert url.long_url == "https://new-example.com/"
+      assert url.slug == "some_updated_slug"
     end
 
     test "update_url/2 with invalid data returns error changeset" do

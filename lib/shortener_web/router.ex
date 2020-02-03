@@ -18,6 +18,7 @@ defmodule ShortenerWeb.Router do
 
     get "/", PageController, :index
     resources "/urls", UrlController
+    get("/r/:slug", UrlController, :redirections)
   end
 
   # Other scopes may use custom stacks.

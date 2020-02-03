@@ -29,6 +29,19 @@ defmodule ShortenerWeb.UrlController do
     end
   end
 
+  def redirections(conn, %{"slug" => slug}) do
+    case Web.get_url!(slug) do
+      {:error, message} ->
+        conn
+        |> put_flash(:error, message)
+        |> redirect(to: Routes.url_path(conn, :index))
+
+      url ->
+        Web.update_url(url, %{clicks: url.clicks + 1})
+        redirect(conn, external: url.long_url)
+    end
+  end
+
   def show(conn, %{"id" => id}) do
     url = Web.get_url!(id)
     render(conn, "show.html", url: url)

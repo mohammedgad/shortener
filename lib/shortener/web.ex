@@ -15,6 +15,13 @@ defmodule Shortener.Web do
     |> Repo.all()
   end
 
+  def get_url!(slug) when is_binary(slug) do
+    case Repo.get_by(Url, slug: slug) do
+      nil -> {:error, "url is invalid"}
+      url -> url
+    end
+  end
+
   def get_url!(id), do: Repo.get!(Url, id)
 
   def create_url(attrs \\ %{}) do

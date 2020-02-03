@@ -1,20 +1,14 @@
 # Shortener
 
-To start your Phoenix server:
+To start your Shortener:
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Install Node.js dependencies with `cd assets && npm install`
-  * Start Phoenix endpoint with `mix phx.server`
+- docker-compose up --build
+- docker-compose run --rm website mix do ecto.create, ecto.migrate
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+To run tests:
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+- docker-compose run --rm website bash
+- MIX_ENV=test mix test
 
-## Learn more
-
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+Now you can visit [`localhost:5000/urls`](http://localhost:5000/urls) from your browser.
+To use the short link redirection [`localhost:5000/r/:slug`](http://localhost:5000/r/:slug)

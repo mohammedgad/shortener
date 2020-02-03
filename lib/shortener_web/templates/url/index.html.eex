@@ -14,7 +14,7 @@
 <%= for url <- @urls do %>
     <tr>
       <td><%= url.long_url %></td>
-      <td><%= url.slug %></td>
+      <td><%= link  url.slug, to: "r/" <> url.slug %></td>
       <td><%= url.clicks %></td>
     </tr>
 <% end %>

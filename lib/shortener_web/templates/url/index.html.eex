@@ -1,0 +1,22 @@
+<h1>URLs Shortener</h1>
+
+<%= render "form.html", Map.put(assigns, :action, Routes.url_path(@conn, :create)) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>url</th>
+      <th>Slug</th>
+      <th>Clicks</th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for url <- @urls do %>
+    <tr>
+      <td><%= url.long_url %></td>
+      <td><%= url.slug %></td>
+      <td><%= url.clicks %></td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
